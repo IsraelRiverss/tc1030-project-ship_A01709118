@@ -29,5 +29,4 @@ double LiquidContainer::getConsumption() const {
     // The fuel consumption for carrying this type of container is 4 times its weight.
     return 4.0 * getWeight();
 }
-
 #endif
