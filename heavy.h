@@ -1,7 +1,7 @@
 // =========================================================
 // File: heavy.h
-// Author:
-// Date:
+// Author: Fernando Israel Rios Garcia
+// Date: 06/02/2023
 // Description:
 // =========================================================
 #ifndef HEAVY_H
