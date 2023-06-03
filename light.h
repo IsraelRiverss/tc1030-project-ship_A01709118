@@ -14,11 +14,12 @@ public:
     LightContainer(int id, int weight);
     LightContainer(const LightContainer& other);
 
-    double getConsumption() const;
+    double getConsumption() const override;
 };
 
-LightContainer::LightContainer(int id, int weight) : Container(id, weight, LIGHT) {
-    // Se invoca al constructor de la clase base (Container) para inicializar el id, peso y tipo del contenedor.
+LightContainer::LightContainer(int id, int weight) : Container(id, weight >= 0 ? weight : 0, LIGHT) {
+    // Invoca al constructor de la clase superior (Container) con el tipo de contenedor correcto (LIGHT).
+    // Si el peso es negativo, se establece en 0 en su lugar.
 }
 
 LightContainer::LightContainer(const LightContainer& other) : Container(other) {

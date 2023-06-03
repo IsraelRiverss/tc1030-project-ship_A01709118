@@ -27,7 +27,13 @@ En resumen, la clase `Container` proporciona una representación básica de un c
 #define CONTAINER_H
 
 typedef enum{LIGHT, HEAVY, REFRIGERATED, LIQUID} ContainerType;
-
+/*
+ * Container class that contains 3 parameters, contains the methods to
+ * get id, weight and overrides operators
+ *
+ * @parameters int id
+ * @parameters int weight
+ */
 class Container {
 protected:
   int id, weight;
