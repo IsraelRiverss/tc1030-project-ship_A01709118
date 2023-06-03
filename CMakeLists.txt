@@ -22,4 +22,5 @@ add_executable(tc1030_project_ship_A01709118
         port.h
         refrigerated.h
         ship.h
-        simpleship.h)
+        simpleship.h
+        main.cpp)

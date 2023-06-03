@@ -1,23 +1,8 @@
 # ninja log v5
-16	28546	7074360706295867	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_liquid.cpp.obj	6bc320e87da33bc7
-1	28599	7074360706751439	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj	70093d11eeae7b6b
-9	28767	7074360708515164	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj	78b253dfc7f7318e
-45	28646	7074360707344452	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj	de9a301f5b106d5d
-28553	42041	7074360841430970	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj	c8e14166a5b89777
-22	28773	7074360708579818	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port1.cpp.obj	bc9cb39a7853228a
-36	28971	7074360710595528	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port2.cpp.obj	38d7d8b3669857fa
-42	33613	7074586351371226	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj	90b1aaee4223634d
-16	34096	7074586356735173	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_liquid.cpp.obj	bea97d28aa95d775
-10	34139	7074586357196892	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj	cb9ad80243d49d41
-21	34182	7074586357604816	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port1.cpp.obj	dc40d856e6c47008
-4	34221	7074586358006961	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj	cafab4cc66437a4
-29	34326	7074586359021787	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port2.cpp.obj	2897f75fb2253b46
-33631	48576	7074586501704107	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj	9e6de4f1bf263f7d
-8	26589	7074594958204499	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj	cb9ad80243d49d41
-30	26856	7074594961076749	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj	9e6de4f1bf263f7d
-4	26863	7074594961153894	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj	cafab4cc66437a4
 14	26865	7074594961153894	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_liquid.cpp.obj	bea97d28aa95d775
+4	26863	7074594961153894	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj	cafab4cc66437a4
+4	12061	7074599254458513	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj	cb9ad80243d49d41
+30	26856	7074594961076749	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj	9e6de4f1bf263f7d
+26592	38940	7074595082237742	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj	90b1aaee4223634d
 25	27049	7074594963132627	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port1.cpp.obj	dc40d856e6c47008
 19	27089	7074594963490752	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port2.cpp.obj	2897f75fb2253b46
-26592	38940	7074595082237742	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj	90b1aaee4223634d
-4	12061	7074599254458513	CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj	cb9ad80243d49d41
