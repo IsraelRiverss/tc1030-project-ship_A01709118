@@ -98,12 +98,12 @@ build CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.ob
   OBJECT_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir
   OBJECT_FILE_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir\unit_test
 
-build CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/main.cpp.obj: CXX_COMPILER__tc1030_project_ship_A01709118_Debug C$:/Users/Israel/OneDrive/Documents/myWorkspace/projects/tc1030-project-ship_A01709118/unit_test/main.cpp || cmake_object_order_depends_target_tc1030_project_ship_A01709118
-  DEP_FILE = CMakeFiles\tc1030_project_ship_A01709118.dir\unit_test\main.cpp.obj.d
+build CMakeFiles/tc1030_project_ship_A01709118.dir/main.cpp.obj: CXX_COMPILER__tc1030_project_ship_A01709118_Debug C$:/Users/Israel/OneDrive/Documents/myWorkspace/projects/tc1030-project-ship_A01709118/main.cpp || cmake_object_order_depends_target_tc1030_project_ship_A01709118
+  DEP_FILE = CMakeFiles\tc1030_project_ship_A01709118.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
   INCLUDES = -IC:/Users/Israel/OneDrive/Documents/myWorkspace/projects/tc1030-project-ship_A01709118/. -IC:/Users/Israel/OneDrive/Documents/myWorkspace/projects/tc1030-project-ship_A01709118/unit_test
   OBJECT_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir
-  OBJECT_FILE_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir\unit_test
+  OBJECT_FILE_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir
 
 
 # =============================================================================
@@ -113,7 +113,7 @@ build CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/main.cpp.obj: CXX_C
 #############################################
 # Link the executable tc1030_project_ship_A01709118.exe
 
-build tc1030_project_ship_A01709118.exe: CXX_EXECUTABLE_LINKER__tc1030_project_ship_A01709118_Debug CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_liquid.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port1.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port2.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/main.cpp.obj
+build tc1030_project_ship_A01709118.exe: CXX_EXECUTABLE_LINKER__tc1030_project_ship_A01709118_Debug CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_heavy.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_light.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_liquid.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port1.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_port2.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_refrigerated.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/unit_test/testing_ship.cpp.obj CMakeFiles/tc1030_project_ship_A01709118.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\tc1030_project_ship_A01709118.dir

@@ -11,17 +11,22 @@
 
 class HeavyContainer : public Container {
 public:
-  HeavyContainer(int id, int weight);
-  HeavyContainer(int, int, ContainerType);
-  HeavyContainer(const HeavyContainer&);
+    HeavyContainer(int id, int weight);
+    HeavyContainer(const HeavyContainer& other);
 
-  double getConsumption() const;
+    double getConsumption() const;
 };
 
-HeavyContainer::HeavyContainer(int id, int weight) :Container(id, weight >= 0 ? weight : 0, LIGHT) {}
+HeavyContainer::HeavyContainer(int id, int weight) : Container(id, weight, HEAVY) {
+    // Invoca al constructor de la clase superior (Container) con el tipo de contenedor correcto (HEAVY).
+}
 
-HeavyContainer::HeavyContainer(int id, int weight)
+HeavyContainer::HeavyContainer(const HeavyContainer& other) : Container(other) {
+    // Invoca al constructor de la clase superior (Container) para realizar una copia del contenedor existente.
+}
+
 double HeavyContainer::getConsumption() const {
-    return 3 * getWeight(); // El consumo de combustible por llevar este tipo de contenedor es 3 veces el peso del mismo
+    // El consumo de combustible por llevar este tipo de contenedor es 3 veces el peso del mismo.
+    return 3.0 * getWeight();
 }
 #endif
