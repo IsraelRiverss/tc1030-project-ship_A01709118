@@ -2,7 +2,7 @@
 // File: container.h
 // Author: Fernando Israel Rios Garcia
 // Date: 30/05/2023
-// Description: Clase Container, cuenta con tres
+// Description:
 /*
  * La clase `Container` es una clase que representa un contenedor en un sistema de gestión portuaria. Esta clase tiene la responsabilidad de almacenar información relevante sobre el contenedor, como su identificador, peso y tipo.
 
@@ -84,7 +84,6 @@ bool Container::operator<(const Container &right) {
         return type < right.type;
     }
 }
-
 bool Container::operator<(const Container *right) {
     if (type == right->type) {
         return id < right->id;
