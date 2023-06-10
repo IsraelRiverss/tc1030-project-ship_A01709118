@@ -114,7 +114,7 @@ std::list<SimpleShip*> Port::getCurrent() const {
 
 std::string Port::toString() const {
     std::stringstream ss;
-    ss << "Port #" << id << " : (" << std::fixed << std::setprecision(2) << x << ", " << y << ")\n";
+    ss << "Port " << id << " : (" << std::fixed << std::setprecision(2) << x << ", " << y << ")\n";
 
     // Containers
     ss << "Light Containers: ";
@@ -150,7 +150,7 @@ std::string Port::toString() const {
     ss << "\n";
 
     // Ships
-    ss << "Ships in the port: ";
+    ss << "Ships ";
     for (const auto& ship : current) {
         ss << ship->getId() << " ";
     }

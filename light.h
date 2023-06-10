@@ -17,7 +17,7 @@ public:
     double getConsumption() const override;
 };
 
-LightContainer::LightContainer(int id, int weight) : Container(id, weight >= 0 ? weight : 0, LIGHT) {
+LightContainer::LightContainer(int id, int weight) : Container(id, weight, LIGHT) {
     // Invoca al constructor de la clase superior (Container) con el tipo de contenedor correcto (LIGHT).
     // Si el peso es negativo, se establece en 0 en su lugar.
 }

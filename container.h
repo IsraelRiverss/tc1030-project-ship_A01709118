@@ -56,7 +56,12 @@ public:
 };
 Container::Container(int id, int weight, ContainerType type) {
     this->id = id;
-    this->weight = weight;
+    if (weight <= 0) {
+        this -> weight = 0;
+    }
+    if (weight >= 0) {
+        this -> weight = weight;
+    }
     this->type = type;
 }
 
