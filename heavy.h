@@ -18,20 +18,13 @@ public:
     double getConsumption() const;
 };
 
-HeavyContainer::HeavyContainer(int id, int weight) : Container(id, weight, HEAVY) {
-    // Invokes the constructor of the base class (Container) with the correct container type (HEAVY).
-}
+HeavyContainer::HeavyContainer(int id, int weight) : Container(id, weight, HEAVY) {}
 
-HeavyContainer::HeavyContainer(int id, int weight, ContainerType type) : Container(id, weight, type) {
-    // Invokes the constructor of the base class (Container) with the specified container type.
-}
+HeavyContainer::HeavyContainer(int id, int weight, ContainerType type) : Container(id, weight, type) {}
 
-HeavyContainer::HeavyContainer(const HeavyContainer& other) : Container(other) {
-    // Invokes the copy constructor of the base class (Container) to copy the existing container.
-}
+HeavyContainer::HeavyContainer(const HeavyContainer& other) : Container(other) {}
 
 double HeavyContainer::getConsumption() const {
-    // The fuel consumption for carrying this type of container is 3 times its weight.
     return 3.0 * getWeight();
 }
 #endif
