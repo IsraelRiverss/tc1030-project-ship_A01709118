@@ -81,10 +81,11 @@ void Port::incomingShip(SimpleShip* ship) {
 }
 
 void Port::outgoingShip(SimpleShip* ship) {
-    current.remove(ship);
-
-    if (std::find(history.begin(), history.end(), ship) == history.end()) {
+    if (std::find(current.begin(), current.end(), ship) != current.end()) {
+      current.remove(ship);
+      if (std::find(history.begin(), history.end(), ship) == history.end()) {
         history.push_back(ship);
+      }
     }
 }
 

@@ -62,7 +62,6 @@ public:
 };
 
 Ship::Ship(int id, Port* currentPort, int totalWeight, int maxNumberOfAllContainers, int maxNumberOfHeavyContainers, int maxNumberOfRefrigeratedContainers, int maxNumberOfLiquidContainers, double fuelConsumptionPerKM): SimpleShip(id) {
-  // Initialize all state variables to zero.
   this->currentWeight = 0;
   this->totalWeight = totalWeight;
   this->currentNumberOfAllContainers = 0;
@@ -75,20 +74,26 @@ Ship::Ship(int id, Port* currentPort, int totalWeight, int maxNumberOfAllContain
   this->maxNumberOfLiquidContainers = maxNumberOfLiquidContainers;
   this->fuel = 0;
   this->fuelConsumptionPerKM = fuelConsumptionPerKM;
-  // Set the current port.
   this->currentPort = currentPort;
 }
 
-Ship::Ship(const Ship &Ship):SimpleShip(id) {
-  currentPort = Ship.currentPort;
-  totalWeight = Ship.totalWeight;
-  maxNumberOfAllContainers = Ship.maxNumberOfAllContainers;
-  maxNumberOfHeavyContainers = Ship.maxNumberOfHeavyContainers;
-  maxNumberOfRefrigeratedContainers = Ship.maxNumberOfRefrigeratedContainers;
-  maxNumberOfLiquidContainers = Ship.maxNumberOfLiquidContainers;
-  fuelConsumptionPerKM = Ship.fuelConsumptionPerKM;
+Ship::Ship(const Ship &other):SimpleShip(id) {
+  currentWeight = other.currentWeight;
+  totalWeight = other.totalWeight;
+  maxNumberOfAllContainers = other.maxNumberOfAllContainers;
+  currentNumberOfAllContainers = other.currentNumberOfAllContainers;
+  maxNumberOfHeavyContainers = other.maxNumberOfHeavyContainers;
+  currentNumberOfHeavyContainers = other.currentNumberOfHeavyContainers;
+  maxNumberOfRefrigeratedContainers = other.maxNumberOfRefrigeratedContainers;
+  currentNumberOfRefrigeratedContainers = other.currentNumberOfRefrigeratedContainers;
+  maxNumberOfLiquidContainers = other.maxNumberOfLiquidContainers;
+  currentNumberOfLiquidContainers = other.currentNumberOfLiquidContainers;
+  fuel = other.fuel;
+  fuelConsumptionPerKM = other.fuelConsumptionPerKM;
+  currentPort = other.currentPort;
 }
 
+//Getters
 int Ship::getId() const {
   return id;
 }
@@ -105,7 +110,7 @@ int Ship::getMaxNumberOfAllContainers() const {
   return maxNumberOfAllContainers;
 }
 int Ship::getCurrentNumberOfHeavyContainers() const {
-  return currentNumberOfAllContainers;
+  return currentNumberOfHeavyContainers;
 }
 int Ship::getMaxNumberOfHeavyContainers() const {
   return maxNumberOfHeavyContainers;
@@ -119,7 +124,7 @@ int Ship::getMaxNumberOfRefrigeratedContainers() const {
 int Ship::getCurrentNumberOfLiquidContainers() const {
   return currentNumberOfLiquidContainers;
 }
-int Ship::getMaxNumberOfLiquidContainers() const{
+int Ship::getMaxNumberOfLiquidContainers() const {
   return maxNumberOfLiquidContainers;
 }
 double Ship::getFuel() const {
@@ -131,20 +136,47 @@ double Ship::getFuelConsumptionPerKM() const {
 Port* Ship::getCurrentPort() const {
   return currentPort;
 }
-std::list<Container*> Ship::getCurrentContainers() const {
+std::list<Container*> Ship::getCurrentContainers() const { //List of pointers to Container Class objects
   return containers;
 }
 
+//Methods
 bool Ship::sailTo(Port* port) {
-  double amount = 0;
-  for (std::list<Container*>::iterator it = containers.begin(); it != container.end(); it++) {
-    acum += (*it)->getConsumption();
+  double fuelConsumptionPerContianer = 0;
+  double totalFuelConsumption = 0;
+  double distance = this->currentPort->getDistance(port);
+  for (auto it = containers.begin(); it != containers.end(); ++it) {
+    fuelConsumptionPerContianer += (*it)->getConsumption();
+  }
+  totalFuelConsumption = fuelConsumptionPerContianer + (fuelConsumptionPerKM * distance);
+  if (totalFuelConsumption <= fuel) {
+    fuel -= totalFuelConsumption;
+    currentPort->outgoingShip(this);
+    port->incomingShip(this);
+    currentPort = port;
+    return true;
+    }
+}
+void reFuel (double amount) {
+  if (amount > 0) {
+    amount += fuel;
+  }
+}
+bool Ship::contains(Container* container) { //Check method????
+  for (auto it = containers.begin(); it != containers.end(); ++it) {
+    if (*it == container) {
+      return true;
+    }
+  }
+}
+void Ship::remove(Container* container) { //Check method????
+  for (auto it = containers.begin(); it != containers.end(); ++it) {
+    if (*it == container) {
+      containers.erase(it);
+      return;
+    }
   }
 }
 
-void Ship::reFuel(double amount) {
-  if (amount >= 0) {
-    fuel = amount + fuel;
-  }
-}
+
 #endif

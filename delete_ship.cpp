@@ -1,6 +1,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+#include <iostream>
 #include <list>
 #include <string>
 #include <sstream>
@@ -12,6 +13,8 @@
 #include "liquid.h"
 #include "simpleship.h"
 #include "port.h"
+
+using namespace std;
 
 class Ship : public SimpleShip
 {
