@@ -51,7 +51,7 @@ int Container::getId() const {
 }
 
 int Container::getWeight() const {
-    return weight;//Retornamos weight
+    return weight;
 }
 
 ContainerType Container::getType() const {

@@ -224,7 +224,7 @@ public:
 
   bool load(Container *container)
   {
-    if (currentPort->contains(container) == false)
+    if ((currentPort->contains(container) == false) )
     {
       return false;
     }

@@ -157,11 +157,54 @@ bool Ship::sailTo(Port* port) {
     return true;
     }
 }
-void reFuel (double amount) {
+void Ship::reFuel (double amount) {
   if (amount > 0) {
     amount += fuel;
   }
 }
+bool Ship::load(Container* container) {
+  if ((currentPort->contains(container) == false) || (currentNumberOfAllContainers >= maxNumberOfAllContainers) || (currentWeight + container->getWeight() > totalWeight)) {
+    return false;
+  }
+  ContainerType type = container->getType();
+    if (type == HEAVY && currentNumberOfHeavyContainers <= maxNumberOfHeavyContainers)
+    {
+      currentPort->remove(container);
+      containers.push_back(container);
+      currentNumberOfAllContainers += 1;
+      currentNumberOfHeavyContainers += 1;
+      currentWeight = currentWeight + container->getWeight();
+      return true;
+    }
+    else if (type == LIQUID && currentNumberOfLiquidContainers <= maxNumberOfLiquidContainers)
+    {
+      currentPort->remove(container);
+      containers.push_back(container);
+      currentNumberOfAllContainers += 1;
+      currentNumberOfLiquidContainers += 1;
+      currentWeight = currentWeight + container->getWeight();
+      return true;
+    }
+    else if (type == REFRIGERATED && currentNumberOfRefrigeratedContainers <= maxNumberOfRefrigeratedContainers)
+    {
+      currentPort->remove(container);
+      containers.push_back(container);
+      currentNumberOfAllContainers += 1;
+      currentNumberOfRefrigeratedContainers += 1;
+      currentWeight = currentWeight + container->getWeight();
+      return true;
+    }
+    else if (type == LIGHT)
+    {
+      currentPort->remove(container);
+      containers.push_back(container);
+      currentNumberOfAllContainers += 1;
+      currentWeight = currentWeight + container->getWeight();
+      return true;
+    }
+    else
+      return false;
+  }
 bool Ship::contains(Container* container) { //Check method????
   for (auto it = containers.begin(); it != containers.end(); ++it) {
     if (*it == container) {
@@ -177,6 +220,87 @@ void Ship::remove(Container* container) { //Check method????
     }
   }
 }
+bool Ship::unLoad(Container* container) {
+  if (contains(container) == false) {
+    return false;
+  }
+  ContainerType type = container->getType();
+  if (type == HEAVY) {
+    containers.remove(container);
+    this->currentPort->add(container);
+    currentNumberOfAllContainers -= 1;
+    currentNumberOfHeavyContainers -= 1;
+    return true;
+  }
+  if (type == LIQUID) {
+    containers.remove(container);
+    this->currentPort->add(container);
+    currentNumberOfAllContainers -= 1;
+    currentNumberOfLiquidContainers -= 1;
+    return true;
+  }
+  if (type == REFRIGERATED) {
+    containers.remove(container);
+    this->currentPort->add(container);
+    currentNumberOfAllContainers -= 1;
+    currentNumberOfRefrigeratedContainers -= 1;
+    return true;
+  }
+  if (type == LIGHT) {
+    containers.remove(container);
+    this->currentPort->add(container);
+    currentNumberOfAllContainers -= 1;
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+std::string Ship::toString() const{
+
+  std::stringstream ss;
+  ss << std::fixed << std::setprecision(2);
+
+  ss << "\tShip " << this->id << ": " << this->fuel <<std::endl;
+
+  if(currentNumberOfAllContainers != 0){
+    
+    ss << "\t\tLight Containers: ";
+    for (std::list<Container*>::const_iterator it = this->containers.begin(); it != this->containers.end(); ++it) {
+      if ((*it)->getType() == LIGHT) {
+        ss << (*it)->getId() << " ";
+      }
+      }
+    ss << std::endl;
+
+    ss << "\t\tHeavy Containers: ";
+    for (std::list<Container*>::const_iterator it = this->containers.begin(); it != this->containers.end(); ++it) {
+      if ((*it)->getType() == HEAVY) {
+        ss << (*it)->getId() << " ";
+      }
+    }
+    ss << std::endl;
+
+    ss << "\t\tRefrigerated Containers: ";
+    for (std::list<Container*>::const_iterator it = this->containers.begin(); it != this->containers.end(); ++it) {
+      if ((*it)->getType() == REFRIGERATED) {
+        ss << (*it)->getId() << " ";
+      }
+    }
+    ss << std::endl;
+
+    ss << "\t\tLiquid Containers: ";
+    for (std::list<Container*>::const_iterator it = this->containers.begin(); it != this->containers.end(); ++it) {
+      if ((*it)->getType() == LIQUID) {
+        ss << (*it)->getId() << " ";
+      }
+    }
+    ss << std::endl;
+  }
+
+  return ss.str();
 
 
+}
 #endif
