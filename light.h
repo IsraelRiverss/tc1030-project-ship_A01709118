@@ -17,16 +17,10 @@ public:
     double getConsumption() const override;
 };
 
-LightContainer::LightContainer(int id, int weight) : Container(id, weight, LIGHT) {
-    // Invoca al constructor de la clase superior (Container) con el tipo de contenedor correcto (LIGHT).
-    // Si el peso es negativo, se establece en 0 en su lugar.
-}
-
-LightContainer::LightContainer(const LightContainer& other) : Container(other) {
-    // Se invoca al constructor de copia de la clase base (Container) para realizar una copia profunda de los miembros de datos.
-}
+LightContainer::LightContainer(int id, int weight) : Container(id, weight, LIGHT) {}
+LightContainer::LightContainer(const LightContainer& other) : Container(other) {}
 
 double LightContainer::getConsumption() const {
-    return 2.5 * getWeight(); // El consumo de combustible es 2.5 veces el peso del contenedor.
+    return 2.5 * getWeight();
 }
 #endif

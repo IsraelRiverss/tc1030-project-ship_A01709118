@@ -146,8 +146,6 @@ std::list<Container*> Ship::getCurrentContainers() const { //List of pointers to
 
 //Methods
 bool Ship:: sailTo(Port *port){
-
-  
   double distance = this->currentPort->getDistance(port);
   float fuelConsumptionPerContainer = 0;
 
