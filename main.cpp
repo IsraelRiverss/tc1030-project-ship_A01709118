@@ -39,81 +39,64 @@ int main(int argc, char* argv[]) {
 
   outputFile.open(argv[2]);
 
-  // TO DO
-  
-
-  //Read the file
   int containerSize, shipSize, portSize, events;
   inputFile >> containerSize >> shipSize >> portSize >> events;
   
+  int actualShip;
+  int actualContainer;
+  int actualPort;
+  double actualFuel;
 
-  
-  int shipazo;
-  int contenedorazo;
-  int puertoazo;
-  double fuelazo;
-
-  //Cambiamos tamaño de los vectores
   containers.resize(containerSize);
   ships.resize(shipSize);
   ports.resize(portSize);
-  
-  //checar el tipo de evento
-  
-  int evencito;
-
-  
+    
+  int var1;
 
   for (int i = 0; i < events; i++)
   {
     
-    inputFile >> evencito;
+    inputFile >> var1;
     
 
-    switch (evencito)
+    switch (var1)
     {
     case 1:
-      //Crear un contenedor 
-      int puertecito;
-      int pesito;
-      char tipecito;
-      inputFile >> puertecito >> pesito >> tipecito;
+      int actualPort;
+      int actualWheight;
+      char actualTYPE_Container;
+      inputFile >> actualPort >> actualWheight >> actualTYPE_Container;
         
-      switch (tipecito)
+      switch (actualTYPE_Container)
       {
       case 'L':
-        //Crear un contenedor liquido
-        containers[idContainer] = new LiquidContainer(idContainer, pesito);
+        containers[idContainer] = new LiquidContainer(idContainer, actualWheight);
         break;
 
       case 'B':
-        //Crear un contenedor heavy o light
-        if(pesito <= 3000){
-          containers[idContainer] = new LightContainer(idContainer, pesito);
+        if(actualWheight <= 3000){
+          containers[idContainer] = new LightContainer(idContainer, actualWheight);
         }
         else{
-          containers[idContainer] = new HeavyContainer(idContainer, pesito);
+          containers[idContainer] = new HeavyContainer(idContainer, actualWheight);
         }
         break;
       
       case 'R':
-        //Crear un contenedor refrigerado
-        containers[idContainer] = new RefrigeratedContainer(idContainer, pesito);
+        containers[idContainer] = new RefrigeratedContainer(idContainer, actualWheight);
         break;
 
       default:
         break;
       }
 
-      //Agregar el contenedor al puerto
-      ports[puertecito]->add(containers[idContainer]);
+      ports[actualPort]->add(containers[idContainer]);
       idContainer++;
       break;
 
     case 2:
-      //Add ship
 
-      int puertoInicial;
+      int startPort;
       int maxWeight;
       int maxContainers;
       int maxHeavy;
@@ -121,21 +104,20 @@ int main(int argc, char* argv[]) {
       int maxLiquid;
       double fuelPerKM;
 
-      inputFile >> puertoInicial >> maxWeight >> maxContainers >> maxHeavy >> maxRefrigerated >> maxLiquid >> fuelPerKM;
+      inputFile >> startPort >> maxWeight >> maxContainers >> maxHeavy >> maxRefrigerated >> maxLiquid >> fuelPerKM;
 
-      ships[idShip] = new Ship(idShip, ports[puertoInicial], maxWeight, maxContainers, maxHeavy, maxRefrigerated, maxLiquid, fuelPerKM);
-      ports[puertoInicial]->incomingShip(ships[idShip]);
+      ships[idShip] = new Ship(idShip, ports[startPort], maxWeight, maxContainers, maxHeavy, maxRefrigerated, maxLiquid, fuelPerKM);
+      ports[startPort]->incomingShip(ships[idShip]);
       idShip++;
       break;
 
     case 3:
-      //Add port
-      double puertoX;
-      double puertoY;
-      inputFile >> puertoX >> puertoY;
+      double port_x;
+      double port_y;
+      inputFile >> port_x >> port_y;
 
 
-      ports[idPort] = new Port(idPort, puertoX, puertoY);
+      ports[idPort] = new Port(idPort, port_x, port_y);
 
       idPort++;
 
@@ -144,33 +126,29 @@ int main(int argc, char* argv[]) {
     case 4:
 
       
-      inputFile >> shipazo >> contenedorazo;
+      inputFile >> actualShip >> actualContainer;
 
-      ships[shipazo]->load(containers[contenedorazo]);
+      ships[actualShip]->load(containers[actualContainer]);
       break;
 
     case 5:
 
       
-      inputFile >> shipazo >> contenedorazo;
+      inputFile >> actualShip >> actualContainer;
 
-      ships[shipazo]->unLoad(containers[contenedorazo]);
+      ships[actualShip]->unLoad(containers[actualContainer]);
       break;
 
     case 6:
-      //Move ship to another port
+      inputFile >> actualShip >> actualPort;
 
-      inputFile >> shipazo >> puertoazo;
-
-      ships[shipazo]->sailTo(ports[puertoazo]);
+      ships[actualShip]->sailTo(ports[actualPort]);
 
       break;
-    case 7:
-      //Cargar combustible
-      
-      inputFile >> shipazo >> fuelazo;
+    case 7:     
+      inputFile >> actualShip >> actualFuel;
 
-      ships[shipazo]->reFuel(fuelazo);
+      ships[actualShip]->reFuel(actualFuel);
       break;
 
     default:
@@ -178,9 +156,7 @@ int main(int argc, char* argv[]) {
     }
     
   }
-  
-  //Print the output
-  for (int i = 0; i < ports.size(); i++)
+    for (int i = 0; i < ports.size(); i++)
   {
     outputFile << ports[i]->toString();
 
