@@ -43,3 +43,7 @@ Thumbs.db
 CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
+
+# Files Developer Want to ignore
+#######################
+HowRunMianFile.txt
